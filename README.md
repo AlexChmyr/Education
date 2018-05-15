@@ -11,4 +11,3 @@ Design patterns used:
 3) Composite --> Department;
 4) Builder --> Faculty;
 5) Bridge --> ITeacher, IStudent.
-6) 
