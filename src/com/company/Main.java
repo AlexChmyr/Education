@@ -1,13 +1,16 @@
 package com.company;
 
+import com.company.enums.Gender;
 import com.company.interfaces.*;
-import com.company.interfaces.IUniversity;
+
+import java.util.GregorianCalendar;
 
 public class Main {
 
     public static void main(String[] args) {
         //usecaseDepartments();
         //usecaseClassrooms();
+        //usecaseClasses();
     }
 
     private static void usecaseDepartments(){
@@ -42,6 +45,25 @@ public class Main {
         crService.reserveClassroom("NM_4");
         crService.printFreeClassrooms();
         crService.printReservedClassrooms();
+    }
+
+    private static void usecaseClasses(){
+        ICourse math = new Course("Mathematics");
+        ICourse log = new Course("Logistics");
+        AbsStudent student = new Student("Victor", "Petrov", Gender.MALE);
+
+        math.subscribe(student);
+        log.subscribe(student);
+
+        math.appointClass(new GregorianCalendar(2018,05,25).getTime());
+        math.appointClass(new GregorianCalendar(2018,06,02).getTime());
+        log.appointClass(new GregorianCalendar(2018,05,20).getTime());
+        log.appointClass(new GregorianCalendar(2018,06,02).getTime());
+        log.appointClass(new GregorianCalendar(2018,06,11).getTime());
+
+        math.notifyStudents();
+        log.notifyStudents();
+        student.PrintClasses();
     }
 
 }

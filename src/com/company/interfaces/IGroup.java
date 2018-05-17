@@ -1,6 +1,8 @@
 package com.company.interfaces;
 
+import com.company.AbsStudent;
+
 public interface IGroup {
-    void addStudent(IPerson student);
-    void removeStudent(IPerson student);
+    void addStudent(AbsStudent student);
+    void removeStudent(AbsStudent student);
 }

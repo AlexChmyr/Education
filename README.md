@@ -10,4 +10,5 @@ Design patterns used:
 2) Object pool --> ClassroomService;
 3) Composite --> Department;
 4) Builder --> Faculty;
-5) Bridge --> ITeacher, IStudent.
+5) Bridge --> ITeacher, IStudent;
+6) Observer --> Course, IObserver.

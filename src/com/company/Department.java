@@ -10,7 +10,7 @@ public abstract class Department implements IDepartment, IHeadable{
 
     protected String _title;
     protected List<IDepartment> _subDepartments = new ArrayList<IDepartment>();
-    protected List<IPerson> staff  = new ArrayList<IPerson>();
+    protected List<AbsTeacher> staff  = new ArrayList<AbsTeacher>();
     protected IPerson _head;
 
     public void printSubDepartments(int level){
@@ -30,13 +30,11 @@ public abstract class Department implements IDepartment, IHeadable{
         _head = null;
     };
 
-    public void addTeacher(IPerson teacher){
-        if (teacher instanceof ITeacher){
-            staff.add(teacher);
-        }
+    public void addTeacher(AbsTeacher teacher){
+        staff.add(teacher);
     };
 
-    public void removeTeacher(IPerson teacher){
+    public void removeTeacher(AbsTeacher teacher){
         staff.remove(teacher);
     };
 }

@@ -11,7 +11,7 @@ public class Group implements IGroup, IHeadable{
 
     private String _title;
     private IPerson _head;
-    private List<IPerson> students = new ArrayList<IPerson>();
+    private List<AbsStudent> students = new ArrayList<AbsStudent>();
 
     public Group(String title){
         _title = title;
@@ -28,14 +28,12 @@ public class Group implements IGroup, IHeadable{
     }
 
     @Override
-    public void addStudent(IPerson student) {
-        if (student instanceof IStudent){
+    public void addStudent(AbsStudent student){
             students.add(student);
-        }
     }
 
     @Override
-    public void removeStudent(IPerson student) {
+    public void removeStudent(AbsStudent student) {
         students.remove(student);
     }
 }
