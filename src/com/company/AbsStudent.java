@@ -8,7 +8,7 @@ import com.company.interfaces.IClass;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbsStudent extends Person implements IStudent, IObserver {
+public abstract class AbsStudent extends AbsPerson implements IStudent, IObserver {
 
     private int _yearOfStudy;
     private List<IClass> _classes= new ArrayList<IClass>();

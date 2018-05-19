@@ -3,17 +3,17 @@ package com.company;
 import com.company.enums.Gender;
 import com.company.interfaces.IPerson;
 
-public abstract class Person implements IPerson {
+public abstract class AbsPerson implements IPerson {
     protected String _firstName;
     protected String _lastName;
     protected Gender _gender;
 
-    public Person (String firstName, String lastName){
+    public AbsPerson(String firstName, String lastName){
         _firstName = firstName;
         _lastName = lastName;
     }
 
-    public Person (String firstName, String lastName, Gender gender){
+    public AbsPerson(String firstName, String lastName, Gender gender){
         this(firstName,lastName);
         _gender = gender;
     }

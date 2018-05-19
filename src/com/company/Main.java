@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.enums.Gender;
+import com.company.enums.Mark;
 import com.company.interfaces.*;
 
 import java.util.GregorianCalendar;
@@ -8,9 +9,10 @@ import java.util.GregorianCalendar;
 public class Main {
 
     public static void main(String[] args) {
-        //usecaseDepartments();
+        usecaseDepartments();
         //usecaseClassrooms();
         //usecaseClasses();
+        //usecaseAssessments();
     }
 
     private static void usecaseDepartments(){
@@ -36,13 +38,15 @@ public class Main {
         University univer = new University("KPI");
 
         IClassroomService crService = univer.getClassroomservice();
+
+        System.out.println("First attempt:");
         crService.printFreeClassrooms();
         crService.printReservedClassrooms();
 
-        System.out.println("\n\n");
-
         crService.reserveClassroom("NM_3");
         crService.reserveClassroom("NM_4");
+
+        System.out.println("\n\nSecond attempt:");
         crService.printFreeClassrooms();
         crService.printReservedClassrooms();
     }
@@ -64,6 +68,33 @@ public class Main {
         math.notifyStudents();
         log.notifyStudents();
         student.PrintClasses();
+    }
+
+    private static void usecaseAssessments(){
+
+        University univer = new University("KPI");
+        IAssessmentService service = univer.getAssessmentsService();
+
+        ICourse math = new Course("Mathematics");
+        ICourse log = new Course("Logistics");
+        IClass mathClass = math.appointClass(new GregorianCalendar(2018,05,25).getTime());
+        IClass logClass = log.appointClass(new GregorianCalendar(2018,05,30).getTime());
+        IAssessmentsFactory mathAssessmentsFactory = service.getAssessmentsFactory(mathClass);
+        IAssessmentsFactory logAssessmentsFactory = service.getAssessmentsFactory(logClass);
+
+        AbsStudent student1 = new Student("Victor", "Petrov", Gender.MALE);
+        AbsStudent student2 = new Student("Kate", "Ivanova", Gender.FEMALE);
+        AbsStudent student3 = new Student("Roman", "Durov", Gender.MALE);
+
+        mathAssessmentsFactory.assess(student1, Mark.A);
+        mathAssessmentsFactory.assess(student2, Mark.B);
+        mathAssessmentsFactory.assess(student3, Mark.C);
+
+        logAssessmentsFactory.assess(student1, Mark.B);
+        logAssessmentsFactory.assess(student2, Mark.A);
+        logAssessmentsFactory.assess(student3, Mark.A);
+
+        service.printAssessments();
     }
 
 }

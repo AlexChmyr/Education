@@ -50,8 +50,10 @@ public class Course implements ICourse {
     }
 
     @Override
-    public void appointClass(Date date) {
-        _classes.add(new Class(this, date));
+    public IClass appointClass(Date date) {
+        IClass newClass = new Class(this, date);
+        _classes.add(newClass);
+        return newClass;
     }
 
     @Override

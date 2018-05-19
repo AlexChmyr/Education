@@ -11,6 +11,6 @@ public interface ICourse {
     String getDescription();
     void subscribe(AbsStudent student);
     void unsubscribe(AbsStudent student);
-    void appointClass(Date date);
+    IClass appointClass(Date date);
     void notifyStudents();
 }

@@ -1,6 +1,5 @@
 package com.company;
 
-import com.company.interfaces.ICathedra;
 import com.company.interfaces.IDepartment;
 import com.company.interfaces.IFaculty;
 import com.company.interfaces.IGroup;
@@ -8,7 +7,7 @@ import com.company.interfaces.IGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Faculty extends Department implements IFaculty{
+public class Faculty extends AbsDepartment implements IFaculty{
 
     private List<IGroup> _groups = new ArrayList<IGroup>();
 

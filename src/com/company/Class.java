@@ -19,6 +19,11 @@ public class Class implements IClass {
     }
 
     @Override
+    public ICourse getCourse() {
+        return _course;
+    }
+
+    @Override
     public String getInfo() {
         return _course.getTitle()+" appointed on "+_date.toString();
     }

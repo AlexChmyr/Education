@@ -6,7 +6,7 @@ import com.sun.deploy.util.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Department implements IDepartment, IHeadable{
+public abstract class AbsDepartment implements IDepartment, IHeadable{
 
     protected String _title;
     protected List<IDepartment> _subDepartments = new ArrayList<IDepartment>();

@@ -1,14 +1,12 @@
 package com.company;
 
-import com.company.interfaces.IFaculty;
-import com.company.interfaces.IUniversity;
-import com.company.interfaces.IDepartment;
-import com.company.interfaces.IClassroomService;
+import com.company.interfaces.*;
 
-public class University extends Department implements IUniversity{
+public class University extends AbsDepartment implements IUniversity{
 
     private static University _instance = null;
     private static IClassroomService _classroomService = new ClassroomService();
+    private static IAssessmentService _assessmentService = new AssessmentService();
 
     public University(String title){
         this._title = title;
@@ -37,4 +35,11 @@ public class University extends Department implements IUniversity{
     public IClassroomService getClassroomservice() {
         return _classroomService;
     }
+
+    @Override
+    public IAssessmentService getAssessmentsService() {
+        return _assessmentService;
+    }
+
+
 }

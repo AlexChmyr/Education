@@ -3,7 +3,7 @@ package com.company;
 import com.company.enums.Gender;
 import com.company.interfaces.ITeacher;
 
-public abstract class AbsTeacher extends Person implements ITeacher {
+public abstract class AbsTeacher extends AbsPerson implements ITeacher {
 
     private String _position;
 
